@@ -115,9 +115,8 @@ export default function BookDetailsPage() {
             </p>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="bg-gray-100 px-4 py-2 rounded-lg">
-                <span className="text-sm text-gray-500">Available</span>
-                <p className="text-xl font-bold text-gray-800">{book.available_quantity}</p>
+              <div className="bg-gray-100 px-4 py-3 rounded-lg">
+                <p className="text-xl font-bold text-gray-800">{book.available_quantity} copies left</p>
               </div>
             </div>
 

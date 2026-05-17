@@ -11,9 +11,10 @@ interface BookCardProps {
     image_url: string;
     category: string;
   };
+  buttonLabel?: string;
 }
 
-export default function BookCard({ book }: BookCardProps) {
+export default function BookCard({ book, buttonLabel = "Details" }: BookCardProps) {
   return (
     <div className="card-hover bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
       <div className="relative h-52 w-full">
@@ -37,7 +38,7 @@ export default function BookCard({ book }: BookCardProps) {
           href={`/books/${book._id}`}
           className="inline-block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-lg font-medium transition-colors"
         >
-          View Details
+          {buttonLabel}
         </Link>
       </div>
     </div>

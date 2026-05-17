@@ -92,7 +92,7 @@ export default function UpdateProfilePage() {
               disabled={loading}
               className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-colors disabled:opacity-50"
             >
-              {loading ? "Updating..." : "Update"}
+              {loading ? "Updating..." : "Update Information"}
             </button>
           </div>
         </form>
