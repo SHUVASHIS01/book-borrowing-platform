@@ -57,7 +57,7 @@ export default function Home() {
             href="/all-books"
             className="inline-block bg-white text-indigo-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition-all transform hover:scale-105 animate__animated animate__fadeInUp animate__delay-1s"
           >
-            Browse All Books →
+            Browse Now
           </Link>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function Home() {
       {/* Marquee */}
       <div className="bg-indigo-600 text-white py-3 overflow-hidden">
         <div className="marquee whitespace-nowrap text-lg font-medium">
-          🆕 New Arrivals &nbsp;&nbsp;|&nbsp;&nbsp; 🔥 Trending Books &nbsp;&nbsp;|&nbsp;&nbsp; 💰 Discounts &nbsp;&nbsp;|&nbsp;&nbsp; ⭐ Popular Reads &nbsp;&nbsp;|&nbsp;&nbsp; 📚 Weekly Picks &nbsp;&nbsp;|&nbsp;&nbsp; 🎉 Member Exclusives
+          🆕 New Arrivals: The Great Gatsby | Clean Code | Cosmos &nbsp;&nbsp;|&nbsp;&nbsp; 💰 Special Discount on Memberships &nbsp;&nbsp;|&nbsp;&nbsp; ⭐ Popular Reads &nbsp;&nbsp;|&nbsp;&nbsp; 📚 Trending: Sapiens | 1984 &nbsp;&nbsp;|&nbsp;&nbsp; 🎉 Join Today
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import Book from "./models/Book";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://shuvashisbasak_db_user:PwZ2hT78c3FpLX3y@cluster0.kelelpm.mongodb.net/book-borrowing?retryWrites=true&w=majority&appName=Cluster0";
+const MONGODB_URI = process.env.MONGODB_URI || "";
 
 const books = [
   {
