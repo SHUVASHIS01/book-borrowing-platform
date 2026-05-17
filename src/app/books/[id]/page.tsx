@@ -81,52 +81,54 @@ export default function BookDetailsPage() {
   if (!book) {
     return (
       <div className="text-center py-20">
-        <p className="text-gray-500 text-lg">Book not found.</p>
+        <div className="text-5xl mb-4">📭</div>
+        <p className="text-gray-400 text-lg">Book not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate__animated animate__fadeIn">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden animate__animated animate__fadeIn">
         <div className="flex flex-col md:flex-row">
           {/* Book Image */}
-          <div className="md:w-1/3 relative h-80 md:h-auto">
+          <div className="md:w-2/5 relative h-80 md:h-auto md:min-h-[500px]">
             <Image
               src={book.image_url}
               alt={book.title}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, 40vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:bg-gradient-to-r"></div>
           </div>
 
           {/* Book Info */}
-          <div className="md:w-2/3 p-8 md:p-12">
-            <span className="inline-block bg-indigo-100 text-indigo-700 text-sm px-3 py-1 rounded-full font-medium mb-4">
+          <div className="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+            <span className="inline-block w-fit bg-indigo-50 text-indigo-600 text-xs px-3 py-1.5 rounded-full font-semibold mb-4 uppercase tracking-wider">
               {book.category}
             </span>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 leading-tight">
               {book.title}
             </h1>
-            <p className="text-lg text-gray-500 mb-6">by {book.author}</p>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-lg text-gray-400 mb-6">by <span className="text-gray-600 font-medium">{book.author}</span></p>
+            <p className="text-gray-500 leading-relaxed mb-8">
               {book.description}
             </p>
 
             <div className="flex items-center gap-4 mb-8">
-              <div className="bg-gray-100 px-4 py-3 rounded-lg">
-                <p className="text-xl font-bold text-gray-800">{book.available_quantity} copies left</p>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 px-5 py-3 rounded-xl border border-gray-200">
+                <p className="text-lg font-bold text-gray-800">{book.available_quantity} copies left</p>
               </div>
             </div>
 
             <button
               onClick={handleBorrow}
               disabled={borrowing || book.available_quantity <= 0}
-              className={`px-8 py-3 rounded-xl font-bold text-lg transition-all ${
+              className={`px-8 py-3.5 rounded-xl font-bold text-sm transition-all w-fit relative overflow-hidden ${
                 book.available_quantity <= 0
-                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700 text-white transform hover:scale-105"
+                  ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  : "btn-primary-gradient text-white shadow-lg shadow-indigo-200 hover:shadow-xl"
               }`}
             >
               {borrowing

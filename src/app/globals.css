@@ -13,29 +13,167 @@
   --color-base-300: #e2e8f0;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
 }
 
+/* ─── Hero ─── */
 .hero-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  position: relative;
+  overflow: hidden;
 }
 
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+  animation: heroFloat 15s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(2%, -2%) rotate(1deg); }
+  66% { transform: translate(-1%, 1%) rotate(-1deg); }
+}
+
+/* ─── Glassmorphism Card ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Cards ─── */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15),
+              0 0 0 1px rgba(99, 102, 241, 0.1);
 }
 
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Buttons ─── */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary-gradient:hover::after {
+  left: 100%;
+}
+
+.btn-primary-gradient:hover {
+  box-shadow: 0 8px 25px -5px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ─── Marquee ─── */
 .marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 25s linear infinite;
 }
 
 @keyframes marquee {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
+}
+
+/* ─── Section Divider ─── */
+.section-divider {
+  position: relative;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+/* ─── Input Focus Glow ─── */
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ─── Floating animation ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ─── Blob shapes ─── */
+.blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.15;
+  animation: blobMove 8s ease-in-out infinite;
+}
+
+@keyframes blobMove {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
 }

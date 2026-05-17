@@ -48,59 +48,65 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-xl p-8 animate__animated animate__fadeInUp">
+    <div className="min-h-[85vh] flex items-center justify-center px-4 py-10 relative overflow-hidden">
+      <div className="blob w-96 h-96 bg-purple-400 -top-32 -right-32 fixed"></div>
+      <div className="blob w-72 h-72 bg-indigo-400 -bottom-20 -left-20 fixed"></div>
+
+      <div className="w-full max-w-md relative z-10">
+        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl shadow-indigo-100/50 p-8 border border-white/50 animate__animated animate__fadeInUp">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Registration</h1>
-            <p className="text-gray-500 mt-2">Join BookBorrow and start reading</p>
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-200">
+              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
+            </div>
+            <h1 className="text-2xl font-extrabold text-gray-900">Registration</h1>
+            <p className="text-gray-400 mt-1 text-sm">Join BookBorrow and start reading</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Name</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Photo URL (optional)</label>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Photo URL (optional)</label>
               <input
                 type="url"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
                 placeholder="https://example.com/photo.jpg"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700"
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
                 placeholder="••••••••"
               />
             </div>
@@ -108,21 +114,21 @@ export default function RegisterPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-colors disabled:opacity-50"
+              className="w-full btn-primary-gradient text-white py-3 rounded-xl font-bold text-sm relative overflow-hidden disabled:opacity-50 shadow-md shadow-indigo-200"
             >
               {loading ? "Registering..." : "Register"}
             </button>
           </form>
 
-          <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-gray-200"></div>
-            <span className="px-4 text-sm text-gray-400">or</span>
-            <div className="flex-1 border-t border-gray-200"></div>
+          <div className="my-6 flex items-center gap-3">
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <span className="text-xs text-gray-400 font-medium">OR</span>
+            <div className="flex-1 h-px bg-gray-200"></div>
           </div>
 
           <button
             onClick={handleGoogleSignup}
-            className="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-colors font-medium text-gray-700"
+            className="w-full flex items-center justify-center gap-3 bg-gray-50 border border-gray-200 py-3 rounded-xl hover:bg-gray-100 transition-all font-medium text-gray-700 text-sm"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -133,9 +139,9 @@ export default function RegisterPage() {
             Continue with Google
           </button>
 
-          <p className="text-center text-gray-500 text-sm mt-6">
+          <p className="text-center text-gray-400 text-sm mt-6">
             Already have an account?{" "}
-            <Link href="/login" className="text-indigo-600 font-semibold hover:underline">
+            <Link href="/login" className="text-indigo-600 font-semibold hover:text-indigo-700 transition-colors">
               Login
             </Link>
           </p>
