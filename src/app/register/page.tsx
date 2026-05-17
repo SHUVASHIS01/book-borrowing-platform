@@ -52,7 +52,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8 animate__animated animate__fadeInUp">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Create Account</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Registration</h1>
             <p className="text-gray-500 mt-2">Join BookBorrow and start reading</p>
           </div>
 
@@ -110,7 +110,7 @@ export default function RegisterPage() {
               disabled={loading}
               className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-colors disabled:opacity-50"
             >
-              {loading ? "Creating account..." : "Sign Up"}
+              {loading ? "Registering..." : "Register"}
             </button>
           </form>
 
@@ -136,7 +136,7 @@ export default function RegisterPage() {
           <p className="text-center text-gray-500 text-sm mt-6">
             Already have an account?{" "}
             <Link href="/login" className="text-indigo-600 font-semibold hover:underline">
-              Sign In
+              Login
             </Link>
           </p>
         </div>

@@ -44,7 +44,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8 animate__animated animate__fadeInUp">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Welcome Back</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Login</h1>
             <p className="text-gray-500 mt-2">Sign in to continue borrowing books</p>
           </div>
 
@@ -78,7 +78,7 @@ export default function LoginPage() {
               disabled={loading}
               className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-xl font-bold transition-colors disabled:opacity-50"
             >
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? "Logging in..." : "Login"}
             </button>
           </form>
 
@@ -104,7 +104,7 @@ export default function LoginPage() {
           <p className="text-center text-gray-500 text-sm mt-6">
             Don&apos;t have an account?{" "}
             <Link href="/register" className="text-indigo-600 font-semibold hover:underline">
-              Sign Up
+              Register
             </Link>
           </p>
         </div>

@@ -37,7 +37,7 @@ export default function BookCard({ book }: BookCardProps) {
           href={`/books/${book._id}`}
           className="inline-block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-lg font-medium transition-colors"
         >
-          Details
+          View Details
         </Link>
       </div>
     </div>
