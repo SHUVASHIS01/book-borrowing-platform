@@ -32,11 +32,9 @@ export default function Navbar() {
             <Link href="/all-books" className="text-gray-700 hover:text-indigo-600 font-medium transition-colors">
               All Books
             </Link>
-            {session && (
-              <Link href="/my-profile" className="text-gray-700 hover:text-indigo-600 font-medium transition-colors">
-                My Profile
-              </Link>
-            )}
+            <Link href="/my-profile" className="text-gray-700 hover:text-indigo-600 font-medium transition-colors">
+              My Profile
+            </Link>
           </div>
 
           {/* Auth Buttons */}
@@ -88,11 +86,9 @@ export default function Navbar() {
               <Link href="/all-books" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-indigo-600 font-medium py-2">
                 All Books
               </Link>
-              {session && (
-                <Link href="/my-profile" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-indigo-600 font-medium py-2">
-                  My Profile
-                </Link>
-              )}
+              <Link href="/my-profile" onClick={() => setMenuOpen(false)} className="text-gray-700 hover:text-indigo-600 font-medium py-2">
+                My Profile
+              </Link>
               {session ? (
                 <button
                   onClick={() => { handleLogout(); setMenuOpen(false); }}
