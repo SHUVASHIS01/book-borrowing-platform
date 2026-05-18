@@ -20,12 +20,18 @@ export async function GET(request: NextRequest) {
     query.title = { $regex: search, $options: "i" };
   }
 
-  let booksQuery = Book.find(query).sort({ createdAt: -1 });
+  let booksQuery = Book.find(query).lean().sort({ createdAt: -1 });
 
   if (limit) {
     booksQuery = booksQuery.limit(parseInt(limit));
   }
 
   const books = await booksQuery;
-  return NextResponse.json(books);
+
+  const response = NextResponse.json(books);
+  response.headers.set(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=300"
+  );
+  return response;
 }

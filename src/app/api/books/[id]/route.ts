@@ -9,11 +9,16 @@ export async function GET(
   await dbConnect();
   const { id } = await params;
 
-  const book = await Book.findById(id);
+  const book = await Book.findById(id).lean();
 
   if (!book) {
     return NextResponse.json({ error: "Book not found" }, { status: 404 });
   }
 
-  return NextResponse.json(book);
+  const response = NextResponse.json(book);
+  response.headers.set(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=300"
+  );
+  return response;
 }

@@ -106,13 +106,13 @@ export default function Home() {
               <div className="relative">
                 {/* Floating book cards */}
                 <div className="absolute -top-6 -left-6 w-48 h-64 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/30 border border-white/10 rotate-[-8deg] z-10 hover:rotate-0 hover:scale-110 hover:shadow-[0_30px_60px_rgba(59,130,246,0.3)] hover:z-30 transition-all duration-500 cursor-pointer">
-                  <Image src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400" alt="Book" fill className="object-cover" sizes="200px" />
+                  <Image src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400" alt="Book" fill className="object-cover" sizes="200px" priority />
                 </div>
                 <div className="w-56 h-72 rounded-2xl overflow-hidden shadow-2xl shadow-indigo-900/40 border border-white/10 mx-auto rotate-[3deg] hover:rotate-0 hover:scale-110 hover:shadow-[0_30px_60px_rgba(99,102,241,0.3)] hover:z-30 transition-all duration-500 cursor-pointer relative z-20">
-                  <Image src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" alt="Book" fill className="object-cover" sizes="250px" />
+                  <Image src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400" alt="Book" fill className="object-cover" sizes="250px" priority />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-48 h-64 rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/30 border border-white/10 rotate-[8deg] z-10 hover:rotate-0 hover:scale-110 hover:shadow-[0_30px_60px_rgba(139,92,246,0.3)] hover:z-30 transition-all duration-500 cursor-pointer">
-                  <Image src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400" alt="Book" fill className="object-cover" sizes="200px" />
+                  <Image src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400" alt="Book" fill className="object-cover" sizes="200px" priority />
                 </div>
                 {/* Decorative elements */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/5 rounded-full blur-2xl" />
