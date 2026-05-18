@@ -15,7 +15,6 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       const result = await signIn.email({ email, password });
       if (result.error) {
@@ -33,71 +32,49 @@ export default function LoginPage() {
 
   const handleGoogleLogin = async () => {
     try {
-      await signIn.social({ provider: "google" });
+      await signIn.social({ provider: "google", callbackURL: "/" });
     } catch {
       toast.error("Google login failed");
     }
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center px-4 py-10 relative overflow-hidden">
-      <div className="blob w-96 h-96 bg-indigo-400 -top-32 -left-32 fixed"></div>
-      <div className="blob w-72 h-72 bg-purple-400 -bottom-20 -right-20 fixed"></div>
-
-      <div className="w-full max-w-md relative z-10">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl shadow-indigo-100/50 p-8 border border-white/50 animate__animated animate__fadeInUp">
-          <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-200">
-              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-            </div>
-            <h1 className="text-2xl font-extrabold text-gray-900">Login</h1>
-            <p className="text-gray-400 mt-1 text-sm">Sign in to continue borrowing books</p>
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-600/20">
+            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
           </div>
+          <h1 className="text-2xl font-extrabold text-slate-900">Login</h1>
+          <p className="text-slate-500 text-sm mt-1">Sign in to continue borrowing books</p>
+        </div>
 
+        <div className="bg-white rounded-2xl border border-slate-200/60 p-7 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
-                placeholder="you@example.com"
-              />
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required
+                className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm bg-slate-50/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all" placeholder="you@example.com" />
             </div>
-
             <div>
-              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white text-gray-700 text-sm transition-all input-glow"
-                placeholder="••••••••"
-              />
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required
+                className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm bg-slate-50/50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white transition-all" placeholder="••••••••" />
             </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full btn-primary-gradient text-white py-3 rounded-xl font-bold text-sm relative overflow-hidden disabled:opacity-50 shadow-md shadow-indigo-200"
-            >
+            <button type="submit" disabled={loading}
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 rounded-xl text-sm font-semibold transition-all disabled:opacity-50 shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30">
               {loading ? "Logging in..." : "Login"}
             </button>
           </form>
 
           <div className="my-6 flex items-center gap-3">
-            <div className="flex-1 h-px bg-gray-200"></div>
-            <span className="text-xs text-gray-400 font-medium">OR</span>
-            <div className="flex-1 h-px bg-gray-200"></div>
+            <div className="flex-1 h-px bg-slate-200"></div>
+            <span className="text-xs text-slate-400 font-medium">OR</span>
+            <div className="flex-1 h-px bg-slate-200"></div>
           </div>
 
-          <button
-            onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-3 bg-gray-50 border border-gray-200 py-3 rounded-xl hover:bg-gray-100 transition-all font-medium text-gray-700 text-sm"
-          >
+          <button onClick={handleGoogleLogin}
+            className="w-full flex items-center justify-center gap-3 border-2 border-slate-200 py-3 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all text-sm font-semibold text-slate-700">
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -106,14 +83,12 @@ export default function LoginPage() {
             </svg>
             Continue with Google
           </button>
-
-          <p className="text-center text-gray-400 text-sm mt-6">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-indigo-600 font-semibold hover:text-indigo-700 transition-colors">
-              Register
-            </Link>
-          </p>
         </div>
+
+        <p className="text-center text-slate-500 text-sm mt-6">
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="text-blue-600 font-semibold hover:underline">Register</Link>
+        </p>
       </div>
     </div>
   );

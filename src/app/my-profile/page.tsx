@@ -11,15 +11,13 @@ export default function MyProfilePage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isPending && !session) {
-      router.push("/login");
-    }
+    if (!isPending && !session) { router.push("/login"); }
   }, [session, isPending, router]);
 
   if (isPending) {
     return (
       <div className="flex justify-center items-center min-h-[60vh]">
-        <div className="w-12 h-12 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -27,75 +25,46 @@ export default function MyProfilePage() {
   if (!session) return null;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-10">
-      <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden animate__animated animate__fadeIn">
-        {/* Header Banner */}
-        <div className="hero-gradient h-36 relative">
-          <div className="blob w-40 h-40 bg-indigo-400 top-0 right-0"></div>
-        </div>
+    <div className="max-w-lg mx-auto px-4 py-10">
+      <div className="mb-8">
+        <span className="text-blue-600 text-sm font-semibold uppercase tracking-wider">Account</span>
+        <h1 className="text-3xl font-extrabold text-slate-900 mt-1">My Profile</h1>
+        <p className="text-slate-500 text-sm mt-1">Your account information</p>
+      </div>
 
-        {/* Profile Content */}
-        <div className="px-8 pb-8 -mt-16 relative z-10">
-          <div className="flex flex-col items-center">
-            {/* Avatar */}
-            <div className="w-28 h-28 rounded-2xl border-4 border-white shadow-xl overflow-hidden bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center rotate-3 hover:rotate-0 transition-transform">
-              {session.user?.image ? (
-                <Image
-                  src={session.user.image}
-                  alt={session.user.name || "User"}
-                  width={112}
-                  height={112}
-                  className="object-cover w-full h-full"
-                />
-              ) : (
-                <span className="text-3xl font-bold text-white">
-                  {session.user?.name?.charAt(0)?.toUpperCase() || "U"}
-                </span>
-              )}
-            </div>
-
-            {/* Info */}
-            <h1 className="text-2xl font-extrabold text-gray-900 mt-5">
-              {session.user?.name}
-            </h1>
-            <p className="text-gray-400 mt-1 text-sm">{session.user?.email}</p>
-
-            {/* Details */}
-            <div className="w-full mt-8 space-y-3">
-              <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100">
-                <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wider">Full Name</p>
-                  <p className="font-semibold text-gray-800">{session.user?.name}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100">
-                <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center">
-                  <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-medium uppercase tracking-wider">Email</p>
-                  <p className="font-semibold text-gray-800">{session.user?.email}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Update Button */}
-            <Link
-              href="/update-profile"
-              className="mt-8 inline-block btn-primary-gradient text-white px-8 py-3 rounded-xl font-bold text-sm relative overflow-hidden shadow-md shadow-indigo-200"
-            >
-              Update Profile
-            </Link>
+      <div className="bg-white rounded-2xl border border-slate-200/60 p-8 shadow-sm">
+        <div className="flex items-center gap-5 mb-8 pb-8 border-b border-slate-100">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shrink-0 overflow-hidden shadow-lg shadow-blue-600/20">
+            {session.user?.image ? (
+              <Image src={session.user.image} alt={session.user.name || "User"} width={80} height={80} className="object-cover w-full h-full" />
+            ) : (
+              <span className="text-2xl font-bold text-white">{session.user?.name?.charAt(0)?.toUpperCase() || "U"}</span>
+            )}
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-slate-900">{session.user?.name}</h2>
+            <p className="text-sm text-slate-400 mt-0.5">{session.user?.email}</p>
           </div>
         </div>
+
+        <div className="space-y-5">
+          <div>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Full Name</label>
+            <p className="text-sm text-slate-800 mt-1 font-medium">{session.user?.name}</p>
+          </div>
+          <div>
+            <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Email Address</label>
+            <p className="text-sm text-slate-800 mt-1 font-medium">{session.user?.email}</p>
+          </div>
+        </div>
+
+        <Link
+          href="/update-profile"
+          className="inline-flex items-center gap-2 mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-all shadow-md shadow-blue-600/20 hover:shadow-lg hover:shadow-blue-600/30"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+          Update Profile
+        </Link>
       </div>
     </div>
   );

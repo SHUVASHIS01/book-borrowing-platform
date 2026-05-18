@@ -15,47 +15,42 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white/80 backdrop-blur-xl border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md group-hover:shadow-indigo-300 transition-shadow">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-md shadow-blue-600/20">
               <span className="text-white text-sm font-bold">B</span>
             </div>
-            <span className="text-xl font-bold gradient-text">BookBorrow</span>
+            <span className="text-lg font-bold text-slate-900 tracking-tight">BookBorrow</span>
           </Link>
 
-          {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-1">
-            <Link href="/" className="px-4 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 font-medium transition-all text-sm">
+            <Link href="/" className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
               Home
             </Link>
-            <Link href="/all-books" className="px-4 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 font-medium transition-all text-sm">
+            <Link href="/all-books" className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
               All Books
             </Link>
-            <Link href="/my-profile" className="px-4 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 font-medium transition-all text-sm">
+            <Link href="/my-profile" className="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all">
               My Profile
             </Link>
           </div>
 
-          {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-3">
             {session ? (
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 bg-indigo-50 px-3 py-1.5 rounded-full">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">
+                <div className="flex items-center gap-2.5 bg-slate-50 px-3 py-1.5 rounded-full">
+                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-sm">
+                    <span className="text-white text-xs font-semibold">
                       {session.user?.name?.charAt(0)?.toUpperCase()}
                     </span>
                   </div>
-                  <span className="text-sm font-medium text-indigo-700">
-                    {session.user?.name}
-                  </span>
+                  <span className="text-sm font-medium text-slate-700">{session.user?.name}</span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-all"
+                  className="text-sm text-slate-400 hover:text-red-500 transition-colors"
                 >
                   Logout
                 </button>
@@ -63,19 +58,18 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="btn-primary-gradient text-white px-6 py-2 rounded-lg font-medium text-sm shadow-md"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/30"
               >
                 Login
               </Link>
             )}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
           >
-            <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {menuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -85,31 +79,17 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden pb-4 animate__animated animate__fadeIn">
-            <div className="flex flex-col gap-1 bg-gray-50 rounded-xl p-3">
-              <Link href="/" onClick={() => setMenuOpen(false)} className="px-4 py-2.5 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-white font-medium transition-all">
-                Home
-              </Link>
-              <Link href="/all-books" onClick={() => setMenuOpen(false)} className="px-4 py-2.5 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-white font-medium transition-all">
-                All Books
-              </Link>
-              <Link href="/my-profile" onClick={() => setMenuOpen(false)} className="px-4 py-2.5 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-white font-medium transition-all">
-                My Profile
-              </Link>
-              <div className="border-t border-gray-200 mt-2 pt-2">
+          <div className="md:hidden py-3 border-t border-slate-100 animate__animated animate__fadeIn">
+            <div className="flex flex-col gap-1">
+              <Link href="/" onClick={() => setMenuOpen(false)} className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">Home</Link>
+              <Link href="/all-books" onClick={() => setMenuOpen(false)} className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">All Books</Link>
+              <Link href="/my-profile" onClick={() => setMenuOpen(false)} className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600">My Profile</Link>
+              <div className="border-t border-slate-100 mt-1 pt-2">
                 {session ? (
-                  <button
-                    onClick={() => { handleLogout(); setMenuOpen(false); }}
-                    className="w-full px-4 py-2.5 rounded-lg text-red-600 hover:bg-red-50 font-medium text-left transition-all"
-                  >
-                    Logout
-                  </button>
+                  <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="w-full px-3 py-2.5 rounded-lg text-sm text-red-500 hover:bg-red-50 text-left font-medium">Logout</button>
                 ) : (
-                  <Link href="/login" onClick={() => setMenuOpen(false)} className="block px-4 py-2.5 rounded-lg btn-primary-gradient text-white font-medium text-center">
-                    Login
-                  </Link>
+                  <Link href="/login" onClick={() => setMenuOpen(false)} className="block px-3 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold text-center">Login</Link>
                 )}
               </div>
             </div>
