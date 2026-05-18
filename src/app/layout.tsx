@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "BookBorrow - Online Book Borrowing Platform",
   description: "Discover, borrow, and enjoy books from our vast collection. Your next great read is just a click away.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
