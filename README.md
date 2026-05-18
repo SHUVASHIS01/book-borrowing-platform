@@ -1,89 +1,52 @@
-# BookBorrow - Online Book Borrowing Platform
+# BookBorrow
 
-A modern, responsive web application where users can browse, search, filter, and borrow books online. Built with Next.js App Router, MongoDB, Tailwind CSS, and BetterAuth for authentication.
+An online book borrowing platform built with Next.js, MongoDB, and BetterAuth. Users can browse, search, and borrow books across different categories.
 
-## Live URL
+**Live Site:** [https://book-borrowing-platform-lilac.vercel.app](https://book-borrowing-platform-lilac.vercel.app)
 
-[Live Demo](https://book-borrowing-platform.vercel.app)
+## Features
 
-## GitHub Repository
-
-[https://github.com/SHUVASHIS01/book-borrowing-platform.git](https://github.com/SHUVASHIS01/book-borrowing-platform.git)
-
-## Purpose
-
-This platform allows users to discover and borrow books from a curated online collection. Users can browse by categories (Story, Tech, Science), search by title, view detailed book information, and borrow books — all with a seamless, modern user experience.
-
-## Key Features
-
-- Browse and search books by title
-- Filter books by category (Story, Tech, Science)
-- View detailed book information
-- Borrow books (requires authentication)
-- User authentication (Email/Password + Google OAuth)
-- User profile management with update functionality
-- Fully responsive design (mobile, tablet, desktop)
-- Smooth animations using Animate.css and SwiperJS
-- Toast notifications for user feedback
-- Protected routes for authenticated content
+- Browse books with category filtering (Story, Tech, Science) and title search
+- Book details page with borrow functionality
+- Email/password and Google OAuth authentication
+- User profile with edit support
+- Responsive across all devices
+- Animations with Animate.css, React-Spring, and SwiperJS
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
-- **Styling:** Tailwind CSS v4 + DaisyUI
-- **Database:** MongoDB Atlas (via Mongoose)
-- **Authentication:** BetterAuth
-- **Animations:** Animate.css + SwiperJS
-- **Notifications:** React Hot Toast
-- **Deployment:** Vercel
+- Next.js 15 (App Router) + TypeScript
+- Tailwind CSS v4 + DaisyUI
+- MongoDB Atlas with Mongoose
+- BetterAuth for authentication
+- Vercel for deployment
 
-## NPM Packages Used
+## Getting Started
 
-| Package | Purpose |
-|---------|---------|
-| next | React framework with App Router |
-| react / react-dom | UI library |
-| tailwindcss | Utility-first CSS |
-| daisyui | Tailwind CSS component library |
-| mongoose | MongoDB ODM |
-| mongodb | MongoDB driver |
-| better-auth | Authentication library |
-| animate.css | CSS animations |
-| swiper | Touch slider/carousel |
-| react-hot-toast | Toast notifications |
-| typescript | Type safety |
+```bash
+git clone https://github.com/SHUVASHIS01/book-borrowing-platform.git
+cd book-borrowing-platform
+npm install
+```
 
-## Setup Instructions
+Create a `.env.local` file:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/SHUVASHIS01/book-borrowing-platform.git
-   cd book-borrowing-platform
-   ```
+```
+MONGODB_URI=your_mongodb_uri
+BETTER_AUTH_SECRET=your_secret
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Run the dev server:
 
-3. **Create `.env.local` file:**
-   ```
-   MONGODB_URI=your_mongodb_connection_string
-   BETTER_AUTH_SECRET=your_secret_key
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
-   BETTER_AUTH_URL=http://localhost:3000
-   ```
+```bash
+npm run dev
+```
 
-4. **Seed the database:**
-   Visit `http://localhost:3000/api/seed` after starting the dev server.
-
-5. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-
-6. **Open the app:**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+Seed the database by visiting `http://localhost:3000/api/seed`.
 
 ## Project Structure
 
@@ -91,36 +54,30 @@ This platform allows users to discover and borrow books from a curated online co
 src/
 ├── app/
 │   ├── api/
-│   │   ├── auth/[...all]/   # BetterAuth handler
-│   │   ├── books/           # Books CRUD API
-│   │   └── seed/            # Database seeder
-│   ├── all-books/           # All books page
-│   ├── books/[id]/          # Book details (protected)
-│   ├── login/               # Login page
-│   ├── register/            # Register page
-│   ├── my-profile/          # User profile (protected)
-│   ├── update-profile/      # Update profile page
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Home page
+│   │   ├── auth/[...all]/   # Auth handler
+│   │   ├── books/           # Books API
+│   │   └── seed/            # DB seeder
+│   ├── all-books/           # Browse books
+│   ├── books/[id]/          # Book details (private)
+│   ├── login/
+│   ├── register/
+│   ├── my-profile/          # Profile (private)
+│   ├── update-profile/
+│   └── page.tsx             # Home
 ├── components/
 │   ├── Navbar.tsx
 │   ├── Footer.tsx
 │   └── BookCard.tsx
 └── lib/
-    ├── auth.ts              # BetterAuth server config
-    ├── auth-client.ts       # BetterAuth client
-    ├── mongodb.ts           # MongoDB connection
-    └── models/
-        └── Book.ts          # Book model
+    ├── auth.ts
+    ├── auth-client.ts
+    ├── mongodb.ts
+    └── models/Book.ts
 ```
 
-## Deployment
+## Deploying to Vercel
 
-This project is configured for deployment on Vercel:
-
-1. Push to GitHub
-2. Import the repo on Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-All routes work correctly on page refresh (no hydration errors).
+1. Import repo on [vercel.com](https://vercel.com)
+2. Add all env variables from `.env.local`
+3. Set `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` to your Vercel URL
+4. Deploy and visit `/api/seed` to populate books
