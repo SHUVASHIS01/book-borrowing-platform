@@ -32,12 +32,8 @@ export default function RegisterPage() {
     }
   };
 
-  const handleGoogleSignup = async () => {
-    try {
-      await signIn.social({ provider: "google", callbackURL: "/" });
-    } catch {
-      toast.error("Google signup failed");
-    }
+  const handleGoogleSignup = () => {
+    signIn.social({ provider: "google", callbackURL: "/" });
   };
 
   return (
