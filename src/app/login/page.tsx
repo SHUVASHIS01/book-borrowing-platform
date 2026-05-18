@@ -30,8 +30,14 @@ export default function LoginPage() {
     }
   };
 
-  const handleGoogleLogin = () => {
-    signIn.social({ provider: "google", callbackURL: "/" });
+  const handleGoogleLogin = async () => {
+    const result = await signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+    if (result?.error) {
+      toast.error(result.error.message || "Google login failed");
+    }
   };
 
   return (
