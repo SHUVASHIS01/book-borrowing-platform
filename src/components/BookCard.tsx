@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSpring, animated } from "@react-spring/web";
+import { useState } from "react";
 
 interface BookCardProps {
   book: {
@@ -12,11 +14,34 @@ interface BookCardProps {
     category: string;
   };
   buttonLabel?: string;
+  index?: number;
 }
 
-export default function BookCard({ book, buttonLabel = "Details" }: BookCardProps) {
+export default function BookCard({ book, buttonLabel = "Details", index = 0 }: BookCardProps) {
+  const [hovered, setHovered] = useState(false);
+
+  const fadeIn = useSpring({
+    from: { opacity: 0, transform: "translateY(30px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    delay: index * 100,
+    config: { tension: 200, friction: 20 },
+  });
+
+  const hoverSpring = useSpring({
+    transform: hovered ? "scale(1.03)" : "scale(1)",
+    boxShadow: hovered
+      ? "0 20px 40px rgba(37, 99, 235, 0.12)"
+      : "0 1px 3px rgba(0, 0, 0, 0.05)",
+    config: { tension: 300, friction: 20 },
+  });
+
   return (
-    <div className="group bg-white rounded-2xl border border-slate-200/60 overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300">
+    <animated.div
+      style={{ ...fadeIn, ...hoverSpring }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group bg-white rounded-2xl border border-slate-200/60 overflow-hidden"
+    >
       <div className="relative h-56 w-full overflow-hidden">
         <Image
           src={book.image_url}
@@ -42,6 +67,6 @@ export default function BookCard({ book, buttonLabel = "Details" }: BookCardProp
           {buttonLabel}
         </Link>
       </div>
-    </div>
+    </animated.div>
   );
 }

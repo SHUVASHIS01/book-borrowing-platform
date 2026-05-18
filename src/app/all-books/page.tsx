@@ -96,8 +96,8 @@ function AllBooksContent() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {books.map((book) => (
-                <BookCard key={book._id} book={book} />
+              {books.map((book, i) => (
+                <BookCard key={book._id} book={book} index={i} />
               ))}
             </div>
           )}
