@@ -9,7 +9,7 @@ const books = [
     description: "A novel about the American Dream set in the Jazz Age, following the mysterious millionaire Jay Gatsby and his obsession with Daisy Buchanan.",
     category: "Story",
     available_quantity: 5,
-    image_url: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
   },
   {
     title: "To Kill a Mockingbird",
@@ -17,7 +17,7 @@ const books = [
     description: "A gripping tale of racial injustice and childhood innocence in the American South, told through the eyes of young Scout Finch.",
     category: "Story",
     available_quantity: 3,
-    image_url: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
   },
   {
     title: "1984",
@@ -25,7 +25,7 @@ const books = [
     description: "A dystopian masterpiece exploring totalitarianism, surveillance, and the power of language in a world where Big Brother is always watching.",
     category: "Story",
     available_quantity: 4,
-    image_url: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
   },
   {
     title: "The Alchemist",
@@ -33,7 +33,7 @@ const books = [
     description: "A philosophical novel about a young Andalusian shepherd who travels to Egypt searching for treasure and discovers his personal legend.",
     category: "Story",
     available_quantity: 6,
-    image_url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg",
   },
   {
     title: "Clean Code",
@@ -41,7 +41,7 @@ const books = [
     description: "A handbook of agile software craftsmanship that teaches developers how to write readable, maintainable, and elegant code.",
     category: "Tech",
     available_quantity: 2,
-    image_url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
   },
   {
     title: "JavaScript: The Good Parts",
@@ -49,7 +49,7 @@ const books = [
     description: "A deep dive into JavaScript's most elegant features, filtering out the bad parts to help developers write better code.",
     category: "Tech",
     available_quantity: 4,
-    image_url: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780596517748-L.jpg",
   },
   {
     title: "Design Patterns",
@@ -57,7 +57,7 @@ const books = [
     description: "The classic reference for object-oriented design patterns that every software engineer should know.",
     category: "Tech",
     available_quantity: 3,
-    image_url: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg",
   },
   {
     title: "The Pragmatic Programmer",
@@ -65,7 +65,7 @@ const books = [
     description: "A guide to becoming a better programmer through practical advice, tips, and techniques for modern software development.",
     category: "Tech",
     available_quantity: 5,
-    image_url: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg",
   },
   {
     title: "A Brief History of Time",
@@ -73,7 +73,7 @@ const books = [
     description: "A landmark volume in science writing that explores the nature of time, black holes, and the origins of the universe.",
     category: "Science",
     available_quantity: 4,
-    image_url: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780553380163-L.jpg",
   },
   {
     title: "Cosmos",
@@ -81,7 +81,7 @@ const books = [
     description: "A sweeping exploration of the universe, from the smallest atoms to the largest galaxies, told with wonder and scientific rigor.",
     category: "Science",
     available_quantity: 3,
-    image_url: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780345539434-L.jpg",
   },
   {
     title: "The Gene",
@@ -89,7 +89,7 @@ const books = [
     description: "An intimate history of the gene, exploring how genetics has shaped humanity's past, present, and future.",
     category: "Science",
     available_quantity: 2,
-    image_url: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9781476733524-L.jpg",
   },
   {
     title: "Sapiens",
@@ -97,7 +97,7 @@ const books = [
     description: "A groundbreaking narrative of humanity's creation and evolution, exploring how Homo sapiens came to dominate the world.",
     category: "Science",
     available_quantity: 5,
-    image_url: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=600&fit=crop",
+    image_url: "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
   },
 ];
 
